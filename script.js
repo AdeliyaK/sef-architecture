@@ -16,22 +16,6 @@ navLinks.forEach(link => {
     });
 });
 
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -216,40 +200,6 @@ contactForm.addEventListener('submit', (e) => {
     console.log('Form submitted:', formData);
 });
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const heroContent = hero.querySelector('.hero-content');
-        if (heroContent && scrolled < window.innerHeight) {
-            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-            heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
-        }
-    }
-});
-
-// Add active state to navigation links based on scroll position
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (correspondingLink) {
-                correspondingLink.classList.add('active');
-            }
-        }
-    });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     // ==== Навигация ====
     const hamburger = document.getElementById('hamburger');
@@ -272,24 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         navbar.classList.toggle('scrolled', currentScroll > 100);
-    });
-
-    // ==== Smooth scroll за anchor линкове ====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (!target) return;
-
-            e.preventDefault();
-            const offsetTop = target.offsetTop - 80;
-
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        });
     });
 
     // ==== Animated counters ====
@@ -632,103 +564,3 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 });
-
-
-// Interactive button ripple effect
-const buttons = document.querySelectorAll('.btn, .filter-btn');
-buttons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
-
-// Interactive form inputs
-const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-formInputs.forEach(input => {
-    input.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-        if (!this.value) {
-            this.parentElement.classList.remove('focused');
-        }
-    });
-    
-    // Add floating label effect
-    if (input.value) {
-        input.parentElement.classList.add('focused');
-    }
-});
-
-// Scroll progress indicator
-const createScrollProgress = () => {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
-    
-    window.addEventListener('scroll', () => {
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (window.scrollY / windowHeight) * 100;
-        progressBar.style.width = scrolled + '%';
-    });
-};
-
-// Removed conflicting parallax - using CSS transitions instead
-
-// Project cards are visible by default - no need for reveal observer that conflicts with transitions
-
-// Interactive navigation link hover effect
-navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
-        navLinks.forEach(l => {
-            if (l !== this) {
-                l.style.opacity = '0.5';
-            }
-        });
-    });
-    
-    link.addEventListener('mouseleave', function() {
-        navLinks.forEach(l => {
-            l.style.opacity = '1';
-        });
-    });
-});
-
-// Smooth reveal animation for sections
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('section-visible');
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-document.querySelectorAll('section:not(#home)').forEach(section => {
-    sectionObserver.observe(section);
-});
-
-// Make hero section visible immediately
-document.querySelector('#home')?.classList.add('section-visible');
-
-// Initialize scroll progress on load
-createScrollProgress();
-
