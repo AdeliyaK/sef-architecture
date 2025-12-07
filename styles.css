@@ -403,14 +403,6 @@ body {
     }
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
 .mouse {
     width: 30px;
     height: 50px;
@@ -1849,5 +1841,11 @@ a:hover {
     .info-text h4 {
         font-size: 1.05rem;
         margin-bottom: 0.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: none;
     }
 }
