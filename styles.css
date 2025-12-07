@@ -522,12 +522,6 @@ section {
     background: var(--secondary-color);
 }
 
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
 
 .about-text .lead {
     font-size: 1.2rem;
@@ -1926,5 +1920,33 @@ a:hover {
 
     .about-text {
         order: 1;
+    }
+}
+
+/* ✅ MOBILE – About section full width text + image below */
+@media (max-width: 768px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .about-text p,
+    .about-text .lead {
+        max-width: 100%;
+    }
+
+    .about-image {
+        width: 100%;
+        order: 2;
+    }
+
+    .image-placeholder {
+        height: 260px;
+        border-radius: 16px;
     }
 }
