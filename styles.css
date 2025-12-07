@@ -1888,3 +1888,43 @@ a:hover {
         display: none;
     }
 }
+
+/* HERO – по-добър вид на телефон */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        /* текст отгоре, фигурата отдолу */
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        z-index: 2;
+    }
+
+    .hero-image {
+        position: static;
+        /* махаме absolute */
+        width: 260px;
+        height: 260px;
+        margin: 2rem auto 0;
+        /* център под текста */
+        opacity: 0.55;
+        pointer-events: none;
+    }
+
+    .geometric-shape {
+        width: 100%;
+        height: 100%;
+        border-radius: 65% 35% 60% 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        order: 2;
+    }
+
+    .about-text {
+        order: 1;
+    }
+}
