@@ -1906,13 +1906,6 @@ a:hover {
     gap: 3rem;
     align-items: center;
 }
-
-@media (max-width: 768px) {
-    .hero-content {
-        margin-top: 5rem;
-    }
-}
-
 @media (max-width: 768px) {
 
     /* Hero като колона */
