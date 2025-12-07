@@ -1840,17 +1840,20 @@ a:hover {
     }
 
     .about-content {
-        grid-template-columns: 1fr;  /* една колона */
+        grid-template-columns: 1fr;
+        /* една колона */
         gap: 2rem;
         align-items: flex-start;
     }
 
     .about-text {
-        order: 1;           /* текстът отгоре */
+        order: 1;
+        /* текстът отгоре */
     }
 
     .about-image {
-        order: 2;           /* картинката отдолу */
+        order: 2;
+        /* картинката отдолу */
         margin-top: 1.5rem;
     }
 
@@ -1899,13 +1902,16 @@ a:hover {
         border-radius: 65% 35% 60% 40%;
     }
 }
+
 /* About layout – DESKTOP (по подразбиране) */
 .about-content {
     display: grid;
-    grid-template-columns: 1.3fr 1fr; /* текст | картинка вдясно */
+    grid-template-columns: 1.3fr 1fr;
+    /* текст | картинка вдясно */
     gap: 3rem;
     align-items: center;
 }
+
 @media (max-width: 768px) {
 
     /* Hero като колона */
@@ -1927,7 +1933,8 @@ a:hover {
         position: relative;
         width: 240px;
         height: 240px;
-        margin: 3rem auto 0; /* ✅ това я мести под бутоните */
+        margin: 3rem auto 0;
+        /* ✅ това я мести под бутоните */
         opacity: 0.45;
         z-index: 1;
         pointer-events: none;
@@ -1945,3 +1952,39 @@ a:hover {
     }
 }
 
+/* MOBILE HERO – топката да е отдолу */
+@media (max-width: 768px) {
+    .hero {
+        position: relative;
+        /* вече го имаш, но да е сигурно */
+        padding: 96px 1.25rem 140px;
+        /* повече padding долу за топката */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        z-index: 2;
+    }
+
+    .hero-image {
+        position: absolute;
+        left: 50%;
+        bottom: -120px;
+        /* колко да „наднича“ отдолу */
+        transform: translateX(-50%);
+        width: 320px;
+        height: 320px;
+        margin: 0;
+        opacity: 0.55;
+        pointer-events: none;
+    }
+
+    .geometric-shape {
+        width: 100%;
+        height: 100%;
+        border-radius: 65% 35% 60% 40%;
+    }
+}
