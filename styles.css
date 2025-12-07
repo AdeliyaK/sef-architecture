@@ -647,34 +647,44 @@ body {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .project-card {
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    aspect-ratio: 4/3;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 1;
-    transform: scale(1);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    background: var(--secondary-color);
-    transform-style: preserve-3d;
-    will-change: transform;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    background: #050505;
+    max-width: 360px;
+    flex: 1 1 320px;
+    transition: transform 0.3s var(--easing),
+                box-shadow 0.3s var(--easing),
+                border-color 0.3s var(--easing);
 }
 
-.project-card:hover {
-    transform: translateY(-12px) scale(1.01);
-    box-shadow: 0 30px 100px rgba(212, 175, 55, 0.4),
-                0 0 0 1px rgba(212, 175, 55, 0.2);
-    border-color: rgba(212, 175, 55, 0.3);
+/* ТУК ПРОМЕНЯМЕ */
+.project-image {
+    width: 100%;
+    height: 260px;       /* вместо height: 100%; */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
 }
+
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
 
 .project-card:hover .project-image::before {
     opacity: 0.5;
@@ -731,21 +741,21 @@ body {
 
 .project-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.92) 30%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.4) 85%, transparent 100%);
+    inset: 0;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.4) 80%,
+        transparent 100%
+    );
     color: var(--white);
-    transform: translateY(0);
-    transition: transform var(--transition-duration) var(--easing), 
-                opacity var(--transition-duration) var(--easing),
-                background var(--transition-duration) var(--easing);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    opacity: 1;
-    border-radius: 0 0 24px 24px;
 }
+
 
 .project-card:hover .project-overlay {
     transform: translateY(0);
@@ -773,11 +783,8 @@ body {
 
 .project-description {
     font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-    opacity: 0.95;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
 }
 
 .project-card:hover .project-overlay {
@@ -1096,29 +1103,35 @@ body {
     font-weight: 400;
 }
 
-/* Contact Section */
+/* Contact Section – подравнено и модерно */
 .contact {
     background: var(--primary-color);
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 2.5rem;
-    max-width: 1000px;
+.contact .container {
+    max-width: 1100px;
     margin: 0 auto;
 }
 
+.contact-content {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+/* Лява колона – информация */
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
 }
 
 .info-item {
     display: flex;
-    gap: 1.5rem;
     align-items: flex-start;
+    gap: 1.25rem;
 }
 
 .info-icon {
@@ -1144,11 +1157,6 @@ body {
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }
 
-.info-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
 .info-text h4 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -1164,8 +1172,8 @@ body {
 .info-text a {
     color: var(--text-lighter);
     text-decoration: none;
-    transition: var(--transition);
     border-bottom: 1px solid transparent;
+    transition: var(--transition);
 }
 
 .info-text a:hover {
@@ -1173,6 +1181,7 @@ body {
     border-bottom-color: var(--accent-color);
 }
 
+/* Дясна колона – форма */
 .contact-form {
     background: rgba(42, 42, 42, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
@@ -1183,16 +1192,13 @@ body {
     border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
-.form-group {
+.contact-form .form-group {
     margin-bottom: 1.5rem;
-}
-
-.form-group {
     position: relative;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 1rem 1.5rem;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -1205,22 +1211,14 @@ body {
     color: var(--text-lighter);
 }
 
-.form-group.focused input,
-.form-group.focused textarea {
-    border-color: var(--accent-color);
-    background: rgba(26, 26, 26, 0.7);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1),
-                0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
     color: var(--text-light);
     opacity: 0.6;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
     background: rgba(26, 26, 26, 0.7);
@@ -1228,9 +1226,9 @@ body {
     transform: translateY(-2px);
 }
 
-.form-group textarea {
-    resize: vertical;
+.contact-form textarea {
     min-height: 150px;
+    resize: vertical;
 }
 
 .contact-form .btn {
@@ -1238,138 +1236,22 @@ body {
     text-align: center;
 }
 
-/* Footer */
-.footer {
-    background: var(--black);
-    color: var(--white);
-    padding: 2rem 0 1rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.footer-logo .logo {
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-}
-
-.footer-logo .logo-text {
-    color: var(--white);
-}
-
-.footer-links {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-}
-
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-social a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    transition: var(--transition);
-}
-
-.footer-social a:hover {
-    background: var(--accent-color);
-    transform: translateY(-3px);
-}
-
-.footer-social svg {
-    width: 20px;
-    height: 20px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-}
-
-/* Responsive Design */
+/* Responsive – под 968px всичко подредено едно под друго и центрирано */
 @media (max-width: 968px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: var(--secondary-color);
-        width: 100%;
-        text-align: center;
-        transition: var(--transition);
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
-        padding: 2rem 0;
-        gap: 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-menu li {
-        margin: 1rem 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hero-image {
-        display: none;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-
     .contact-content {
         grid-template-columns: 1fr;
     }
 
-    .footer-content {
-        flex-direction: column;
+    .contact-info {
+        align-items: center;
         text-align: center;
     }
+
+    .info-item {
+        justify-content: center;
+    }
 }
+
 
 @media (max-width: 768px) {
     .hero {
@@ -1454,40 +1336,3 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-.contact {
-    display: flex;
-    justify-content: center;
-}
-
-.contact .container {
-    max-width: 900px;
-    width: 100%;
-}
-
-/* Центриране на заглавната част */
-.section-header {
-    text-align: center;
-}
-
-/* Центриране на contact info */
-.contact-content {
-    display: flex;
-    justify-content: center;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Всеки ред (Address, Phone, Email) */
-.info-item {
-    display: flex;
-    align-items: center;
-    text-align: left;      /* текстът остава четим */
-    gap: 1rem;
-    width: 100%;
-    max-width: 500px;
-}
-
