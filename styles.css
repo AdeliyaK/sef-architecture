@@ -1988,3 +1988,43 @@ a:hover {
         border-radius: 65% 35% 60% 40%;
     }
 }
+
+@media (max-width: 768px) {
+    .hero {
+        /* махаме фиксираната височина за да няма огромно празно място */
+        min-height: auto;
+        padding: 96px 1.25rem 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-image {
+        position: static;
+        /* вече не е absolute */
+        width: 260px;
+        height: 260px;
+        margin: 1.5rem auto 0;
+        /* топката точно под бутоните, център */
+        opacity: 0.55;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        /* махаме фиксираната височина за да няма огромно празно място */
+        min-height: auto;
+        padding: 96px 1.25rem 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-image {
+        position: static;
+        /* вече не е absolute */
+        width: 260px;
+        height: 260px;
+        margin: 1.5rem auto 0;
+        /* топката точно под бутоните, център */
+        opacity: 0.55;
+    }
+}
