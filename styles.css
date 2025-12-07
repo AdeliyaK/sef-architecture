@@ -1844,16 +1844,6 @@ a:hover {
         font-size: 1.05rem;
         margin-bottom: 0.25rem;
     }
-}
-
-@media (max-width: 768px) {
-    .scroll-indicator {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    /* ... твоите неща вътре ... */
 
     /* ABOUT – една колона на телефон */
     .about-content {
@@ -1890,5 +1880,11 @@ a:hover {
         right: -40px;
         top: 55%;
         opacity: 0.4;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: none;
     }
 }
