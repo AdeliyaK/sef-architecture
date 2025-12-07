@@ -190,11 +190,11 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     position: relative;
-    padding: 120px 20px 80px;
+    padding: 100px 20px 60px;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     overflow: hidden;
 }
@@ -240,10 +240,10 @@ body {
 
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 7vw, 5rem);
     font-weight: 700;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     color: var(--text-lighter);
 }
 
@@ -274,9 +274,9 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--text-light);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     max-width: 600px;
     opacity: 0;
     animation: fadeInUp 0.5s var(--easing) 0.4s forwards;
@@ -405,7 +405,7 @@ body {
 
 /* Section Styles */
 section {
-    padding: 120px 0;
+    padding: 60px 0;
     position: relative;
     transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
 }
@@ -428,7 +428,7 @@ section.section-visible {
 
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     position: relative;
 }
 
@@ -483,30 +483,30 @@ section.section-visible {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
 }
 
 .about-text .lead {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--text-lighter);
-    margin-bottom: 1.5rem;
-    line-height: 1.9;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
     letter-spacing: 0.3px;
 }
 
 .about-text p {
     color: var(--text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.8;
 }
 
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .stat-item {
@@ -539,7 +539,7 @@ section.section-visible {
 
 .image-placeholder {
     width: 100%;
-    height: 500px;
+    height: 400px;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #d4af37 100%);
     border-radius: 20px;
     display: flex;
@@ -590,8 +590,8 @@ section.section-visible {
 .filter-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
@@ -640,7 +640,7 @@ section.section-visible {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .project-card {
@@ -725,7 +725,7 @@ section.section-visible {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 2.5rem;
+    padding: 2rem;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.92) 30%, rgba(0, 0, 0, 0.75) 60%, rgba(0, 0, 0, 0.4) 85%, transparent 100%);
     color: var(--white);
     transform: translateY(0);
@@ -745,8 +745,8 @@ section.section-visible {
 
 .project-meta {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
     font-size: 0.85rem;
     opacity: 1;
 }
@@ -763,9 +763,9 @@ section.section-visible {
 }
 
 .project-description {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
     opacity: 0.95;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
@@ -778,9 +778,9 @@ section.section-visible {
 }
 
 .project-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
     letter-spacing: -0.5px;
@@ -832,11 +832,11 @@ section.section-visible {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .service-card {
-    padding: 3rem 2.5rem;
+    padding: 2rem 1.5rem;
     background: rgba(42, 42, 42, 0.6);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
@@ -878,9 +878,9 @@ section.section-visible {
 }
 
 .service-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 2rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
     color: var(--accent-color);
     display: flex;
     align-items: center;
@@ -904,9 +904,9 @@ section.section-visible {
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     color: var(--text-lighter);
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.3px;
@@ -927,7 +927,7 @@ section.section-visible {
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
+    gap: 2.5rem;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -935,7 +935,7 @@ section.section-visible {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .info-item {
@@ -988,7 +988,7 @@ section.section-visible {
     background: rgba(42, 42, 42, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    padding: 3.5rem;
+    padding: 2.5rem;
     border-radius: 24px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(212, 175, 55, 0.15);
@@ -1053,16 +1053,16 @@ section.section-visible {
 .footer {
     background: var(--black);
     color: var(--white);
-    padding: 3rem 0 1.5rem;
+    padding: 2rem 0 1rem;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .footer-logo {
@@ -1125,7 +1125,7 @@ section.section-visible {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
@@ -1201,7 +1201,7 @@ section.section-visible {
     }
 
     section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .projects-grid {
