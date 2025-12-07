@@ -1839,32 +1839,19 @@ a:hover {
         margin-bottom: 0.25rem;
     }
 
-    /* ABOUT – една колона на телефон */
     .about-content {
-        grid-template-columns: 1fr;
-        /* вместо 1fr 1fr */
+        grid-template-columns: 1fr;  /* една колона */
         gap: 2rem;
         align-items: flex-start;
     }
 
-    .about-image {
-        order: 1;
-        /* първо картинката или я остави така ако ти харесва */
-        margin-bottom: 1.5rem;
-    }
-
     .about-text {
-        order: 2;
+        order: 1;           /* текстът отгоре */
     }
 
-    .about-text .lead {
-        font-size: 1.05rem;
-        line-height: 1.6;
-    }
-
-    .about-text p {
-        font-size: 0.95rem;
-        line-height: 1.7;
+    .about-image {
+        order: 2;           /* картинката отдолу */
+        margin-top: 1.5rem;
     }
 
     /* леко свиваме blob-а на мобилен */
@@ -1912,41 +1899,16 @@ a:hover {
         border-radius: 65% 35% 60% 40%;
     }
 }
-
-@media (max-width: 768px) {
-    .about-image {
-        order: 2;
-    }
-
-    .about-text {
-        order: 1;
-    }
+/* About layout – DESKTOP (по подразбиране) */
+.about-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr; /* текст | картинка вдясно */
+    gap: 3rem;
+    align-items: center;
 }
 
-/* ✅ MOBILE – About section full width text + image below */
 @media (max-width: 768px) {
-    .about-content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .about-text {
-        width: 100%;
-    }
-
-    .about-text p,
-    .about-text .lead {
-        max-width: 100%;
-    }
-
-    .about-image {
-        width: 100%;
-        order: 2;
-    }
-
-    .image-placeholder {
-        height: 260px;
-        border-radius: 16px;
+    .hero-content {
+        margin-top: 2rem;
     }
 }
