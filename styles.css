@@ -661,7 +661,7 @@ section {
 .filter-btn {
     padding: 0.65rem 1.8rem;
     background: rgba(30, 30, 30, 0.85);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-lighter);
     font-weight: 500;
     border-radius: 999px;
@@ -672,10 +672,10 @@ section {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: linear-gradient(135deg, var(--accent-color), #e5c547);
-    color: var(--black);
-    border-color: var(--accent-color);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-lighter);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
 /* Сменяме подредбата – истинска grid, 3 на ред на десктоп */
@@ -885,6 +885,17 @@ section {
 @media (max-width: 768px) {
     .architect-card {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+    
+    .architect-image {
+        order: 1;
+        /* Поставя изображението под текста */
+    }
+    
+    /* Place image below content on mobile */
+    .project-figure {
+        flex-direction: column-reverse;
     }
     
     /* Increase touch target size for mobile */
@@ -989,13 +1000,13 @@ section {
 .architect-social a {
     width: 40px;
     height: 40px;
-    background: rgba(212, 175, 55, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-color);
-    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--text-lighter);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.3s var(--easing),
                 background 0.3s var(--easing),
                 border-color 0.3s var(--easing),
@@ -1003,11 +1014,11 @@ section {
 }
 
 .architect-social a:hover {
-    background: var(--accent-color);
-    color: var(--black);
-    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-lighter);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 10px 24px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 
 .architect-social svg {
@@ -1062,16 +1073,16 @@ section {
 
 .architect-role {
     font-size: 0.95rem;
-    color: var(--accent-color);
+    color: var(--text-lighter);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     margin: 1.8rem 0 0.75rem;
     display: inline-block;
     padding: 0.35rem 1.1rem;
-    background: rgba(212, 175, 55, 0.08);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 999px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .architect-bio {
@@ -1097,43 +1108,21 @@ section {
 }
 
 .expertise-tag {
-    font-size: 0.82rem;
-    padding: 0.4rem 0.9rem;
-    background: rgba(212, 175, 55, 0.08);
-    border-radius: 999px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: var(--accent-color);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: transform 0.25s var(--easing),
-                box-shadow 0.25s var(--easing),
-                border-color 0.25s var(--easing),
-                background 0.25s var(--easing);
-}
-
-.expertise-tag:hover {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.12));
-    border-color: rgba(212, 175, 55, 0.7);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-}
-
-.expertise-tag {
     font-size: 0.85rem;
     padding: 0.4rem 1rem;
-    background: rgba(212, 175, 55, 0.08);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
-    color: var(--accent-color);
+    color: var(--text-lighter);
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .expertise-tag:hover {
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.15));
-    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Services Section */
@@ -1582,8 +1571,8 @@ section {
     }
     
     .about-image {
-        order: -1;
-        /* Поставя изображението над текста */
+        order: 1;
+        /* Поставя изображението под текста */
     }
     
     .image-placeholder {
@@ -1938,8 +1927,8 @@ section {
 }
 
 .chip-year {
-    background: rgba(212, 175, 55, 0.16);
-    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--text-lighter);
 }
 
 .chip-location {
@@ -1948,8 +1937,8 @@ section {
 
 .chip-type {
     margin-top: 0.1rem;
-    background: rgba(212, 175, 55, 0.08);
-    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-lighter);
     text-transform: uppercase;
     letter-spacing: 1.6px;
     font-size: 0.75rem;
@@ -1979,9 +1968,9 @@ section {
     align-self: flex-start;
     padding: 0.55rem 1.4rem;
     border-radius: 999px;
-    border: 1px solid rgba(212, 175, 55, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     background: transparent;
-    color: var(--accent-color);
+    color: var(--text-lighter);
     font-size: 0.88rem;
     font-weight: 600;
     display: inline-flex;
@@ -1995,10 +1984,10 @@ section {
 }
 
 .project-btn:hover {
-    background: linear-gradient(135deg, var(--accent-color), #e5c547);
-    color: #000;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-lighter);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .contact-content {
