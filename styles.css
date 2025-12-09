@@ -1893,3 +1893,37 @@ section {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
 }
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-info {
+    max-width: 600px;
+}
+
+/* GLOBAL LINK RESET */
+a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* GLOBAL LINK RESET */
+a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links a,
+.footer-bottom a {
+    color: var(--text-light) !important;
+}
