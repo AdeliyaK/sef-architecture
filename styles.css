@@ -26,6 +26,12 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+}
+
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-lighter);
@@ -151,12 +157,12 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: var(--text-lighter);
     transition: var(--transition);
 }
 
 .nav-link:hover {
-    color: var(--accent-color);
+    color: var(--text-lighter);
 }
 
 .nav-link:hover::after {
@@ -880,6 +886,22 @@ section {
     .architect-card {
         grid-template-columns: 1fr;
     }
+    
+    /* Increase touch target size for mobile */
+    .nav-link {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+    
+    .btn {
+        min-height: 48px;
+        font-size: 1rem;
+    }
+    
+    .filter-btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
+    }
 }
 
 /* СНИМКА */
@@ -1552,6 +1574,27 @@ section {
     align-items: center;
 }
 
+/* Mobile layout for About section */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        order: -1;
+        /* Поставя изображението над текста */
+    }
+    
+    .image-placeholder {
+        height: 300px;
+    }
+    
+    .placeholder-content {
+        font-size: 1.2rem;
+    }
+}
+
 /* ======================
    MOBILE  (max-width: 768px)
    ====================== */
@@ -1560,6 +1603,54 @@ section {
     /* NAVBAR */
     .nav-container {
         padding: 0.75rem 1rem;
+    }
+    
+    /* About Section Typography */
+    .about-text .lead {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    /* Increase touch target size for mobile */
+    .nav-link {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+    
+    .btn {
+        min-height: 48px;
+        font-size: 1rem;
+    }
+    
+    .filter-btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
     }
 
     .hamburger {
@@ -1672,8 +1763,15 @@ section {
     }
 
     .stats {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    @media (max-width: 480px) {
+        .stats {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
     }
 
     /* CONTACT */
@@ -1755,6 +1853,15 @@ section {
     .filter-btn {
         padding: 0.5rem 1.5rem;
         font-size: 0.85rem;
+    }
+    
+    .hero-buttons .btn {
+        min-height: 44px;
+    }
+    
+    .architect-social a {
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -1905,25 +2012,21 @@ section {
 
 /* GLOBAL LINK RESET */
 a {
-    color: var(--text-light);
+    color: var(--text-lighter);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--accent-color);
-}
-
-/* GLOBAL LINK RESET */
-a {
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--accent-color);
+    color: var(--text-lighter);
 }
 
 .footer-links a,
 .footer-bottom a {
-    color: var(--text-light) !important;
+    color: var(--text-lighter) !important;
+}
+
+.footer-links a:hover,
+.footer-bottom a:hover {
+    color: var(--text-lighter) !important;
+    opacity: 0.8;
 }
